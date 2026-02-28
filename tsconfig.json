@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "dist/",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "lib": [
+      "es2017",
+      "es2015.promise",
+      "dom"
+    ]
+  },
+  "exclude": [
+    "*.sandbox.js",
+    "*.sandbox.ts",
+    "**/__tests__/**"
+  ],
+  "include": [
+    "src/index.ts"
+  ]
+}

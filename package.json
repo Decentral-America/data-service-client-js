@@ -1,0 +1,52 @@
+{
+  "name": "@decentralchain/data-service-client-js",
+  "version": "4.1.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Ivan Shmidt <bahoc47@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "build:browser:dev": "tsc && browserify ./dist/index.js -o ./dist/umd.js",
+    "build:browser": "browserify ./dist/index.js -o ./dist/umd.js -u @decentralchain/data-entities -u @decentralchain/bignumber",
+    "build:all": "rimraf ./dist/* && npm run build && npm run build:browser",
+    "test": "jest",
+    "prepare": "npm run build:all && npm test"
+  },
+  "dependencies": {
+    "@decentralchain/bignumber": "^1.0.0",
+    "@decentralchain/data-entities": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "@types/node": "8.0.0",
+    "@types/node-fetch": "^1.6.9",
+    "browserify": "^16.2.2",
+    "jest": "^23.6.0",
+    "node-fetch": "^2.1.2",
+    "parse-json-bignumber": "^0.0.2",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.4.5"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(src/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".history"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "testURL": "http://localhost/"
+  }
+}
